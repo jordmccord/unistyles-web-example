@@ -1,4 +1,6 @@
+import React from "react";
 import type { Preview } from "@storybook/react";
+import NativeUIProvider from "../src/core/NativeUIProvider";
 
 const preview: Preview = {
   parameters: {
@@ -9,6 +11,15 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    (Story) => {
+      return (
+        <NativeUIProvider>
+          <Story />
+        </NativeUIProvider>
+      );
+    },
+  ],
 };
 
 export default preview;
